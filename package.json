@@ -1,0 +1,80 @@
+{
+  "name": "micro-development-cli",
+  "description": "基于微开发模式的脚手架工具 micro-development-cli",
+  "version": "0.0.6",
+  "author": "老君 yaimeet@126.com",
+  "bin": {
+    "md-cli": "./bin/run"
+  },
+  "bugs": "https://github.com/micro-development/micro-development-cli/issues",
+  "dependencies": {
+    "@inquirer/confirm": "^0.0.8-alpha.0",
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^2",
+    "chalk": "^4.1.0",
+    "cli-ux": "^5.4.9",
+    "inquirer": "^7.3.2",
+    "js-beautify": "^1.11.0",
+    "nodegit": "^0.26.5",
+    "ora": "^4.0.5",
+    "shelljs": "^0.8.4",
+    "tslib": "^1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@oclif/test": "^1",
+    "@types/chai": "^4",
+    "@types/chalk": "^2.2.0",
+    "@types/inquirer": "^6.5.0",
+    "@types/mocha": "^5",
+    "@types/node": "^10",
+    "@types/ora": "^3.2.0",
+    "@types/shelljs": "^0.8.8",
+    "chai": "^4",
+    "cz-conventional-changelog": "^3.2.0",
+    "globby": "^10",
+    "mocha": "^5",
+    "nyc": "^14",
+    "ts-node": "^8",
+    "typescript": "^3.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/micro-development/micro-development-cli",
+  "keywords": [
+    "micro-development",
+    "微开发",
+    "微服务"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "oclif": {
+    "commands": "./lib/commands",
+    "bin": "md-cli",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "micro-development/micro-development-cli",
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "posttest": "eslint . --ext .ts --config .eslintrc",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif-dev readme && git add README.md"
+  },
+  "types": "lib/index.d.ts",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
