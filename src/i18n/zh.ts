@@ -129,5 +129,5 @@ export const gitTip = {
     80040: red(`提交仓库变更内部错误，缺少参入：curPackageKey 或 commitContent 参数`),
     80041: (curPackageKey: string) => yellow(`\n提交仓库变更：${curPackageKey} 开始...`),
     80042: (curPackageKey: string) => green(`提交仓库变更：${curPackageKey} 成功`),
-    80043: (curPackageKey: string, code: number) => red(`提交仓库变更：${curPackageKey} 失败，错误码：${result.code}`),
+    80043: (curPackageKey: string, code: number) => red(`提交仓库变更：${curPackageKey} 失败，错误码：${code}`),
 }

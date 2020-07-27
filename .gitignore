@@ -10,3 +10,5 @@ node_modules
 examples
 
 micro-development.json
+
+oclif.manifest.json

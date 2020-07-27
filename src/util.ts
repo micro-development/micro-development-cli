@@ -1,5 +1,4 @@
-import { InitParams, PackageConfig } from './interface'
-import { configFile } from './config'
+import { InitParams, PackageConfig, ConfigInfo } from './interface'
 import { red, green, yellow } from 'chalk';
 import { strict } from 'assert';
 import { string } from '@oclif/command/lib/flags';
@@ -7,7 +6,8 @@ import inquirer = require('inquirer');
 const path = require('path')
 const fs  = require('fs');
 const js_beautify = require('js-beautify').js_beautify
-
+const config: ConfigInfo = require('./config.json')
+const configFile = config.configFile
 /**
  * 获取执行命令所在绝对路径
  * @param joinPath 拼接的路径字符串
