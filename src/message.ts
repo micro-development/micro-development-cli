@@ -37,6 +37,9 @@ export enum InitMsg {
 
     InquirerSuffixLock = 10087,
     InquirerMessageLock = 10088,
+
+    InquirerMessagePackageKeySplit = 10098,
+    InquirerSuffixPackageKeySplit = 10097,
 }
 
 export enum AddMsg {
@@ -160,7 +163,8 @@ export const Msg = {
     10078: LangMsg.init[InitMsg.InquirerMessageGitNamespace],
     10087: LangMsg.init[InitMsg.InquirerSuffixLock],
     10088: LangMsg.init[InitMsg.InquirerMessageLock],
-
+    10097: LangMsg.init[InitMsg.InquirerSuffixPackageKeySplit],
+    10098: LangMsg.init[InitMsg.InquirerMessagePackageKeySplit],
 
     20001: LangMsg.add[AddMsg.InquirerMessageChoiceType],
     20002: LangMsg.add[AddMsg.InquirerSuffixChoiceType],

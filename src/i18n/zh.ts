@@ -35,6 +35,8 @@ export const init = {
     10070: red('\ngit命名空间(用户名或组织名)必填'),
     10077: common.gitNamespace.suffix,
     10078: common.gitNamespace.message,
+    10097: yellow('（默认为 # ）'),
+    10098: '包名称与分支的分隔符',
     10087: common.lock.suffix,
     10088: common.lock.message,
 }

@@ -33,6 +33,7 @@ export default class Init extends Command {
     targetDir: '',
     gitHost: '',
     gitNamespace: '',
+    packageKeySplit: '#',
     dependencies: {},
     lock: false
   }
@@ -167,6 +168,16 @@ export default class Init extends Command {
         }
       },
       {
+        type: 'input',
+        name: 'packageKeySplit',
+        default: '#',
+        message: Msg[InitMsg.InquirerMessagePackageKeySplit],
+        suffix: Msg[InitMsg.InquirerSuffixPackageKeySplit],
+        validate: (val) => {
+          return true
+        }
+      },
+      {
         type: 'confirm',
         name: 'lock',
         message: Msg[InitMsg.InquirerMessageLock],
@@ -181,6 +192,7 @@ export default class Init extends Command {
       this.configData.targetDir = answers.targetDir
       this.configData.gitHost = answers.gitHost
       this.configData.gitNamespace = answers.gitNamespace
+      this.configData.packageKeySplit = answers.packageKeySplit
       this.configData.dependencies = {};
       this.configData.lock = answers.lock
       this.writeConfigFile()
