@@ -1,7 +1,7 @@
 {
   "name": "micro-development-cli",
   "description": "基于微开发模式的脚手架工具 micro-development-cli",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "author": "老君 yaimeet@126.com",
   "bin": {
     "md-cli": "./bin/run"
@@ -67,7 +67,7 @@
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "eslint . --ext .ts --config .eslintrc",
-    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme && cp -r src/**.json lib/",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif-dev readme && git add README.md"
   },
