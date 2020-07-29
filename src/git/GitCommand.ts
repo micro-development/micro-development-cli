@@ -28,6 +28,7 @@ export class GitCommand {
         targetDir: '',
         gitHost: '',
         gitNamespace: '',
+        packageKeySplit: '',
         dependencies: {},
         lock: false
     }
@@ -167,7 +168,7 @@ export class GitCommand {
     protected setCommandInfo() {
         if (this.curPackageInfo.gitUrl) {
             this.commandInfo.gitUrl = this.curPackageInfo.gitUrl
-            this.commandInfo.gitBranchName = this.curPackageKey.split('#')[1]
+            this.commandInfo.gitBranchName = this.curPackageKey.split(this.packageInfo.packageKeySplit)[1]
         } else {
             this.commandInfo.gitBranchName = this.curPackageInfo.gitBranchName || ''
             const gitNamespace = this.curPackageInfo.gitNamespace || this.packageInfo.gitNamespace

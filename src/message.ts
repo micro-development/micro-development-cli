@@ -201,10 +201,10 @@ export const Msg = {
     50000: LangMsg.commit[UpdateMsg.InquirerMessageChooseKey],
     50001: LangMsg.commit[UpdateMsg.InquirerSuffixChooseKey],
 
-    60000: LangMsg.commit[RemoveMsg.InquirerMessageChooseKey],
-    60001: LangMsg.commit[RemoveMsg.InquirerSuffixChooseKey],
-    60002: LangMsg.commit[RemoveMsg.UpdateConfigFileSuccess],
-    60003: LangMsg.commit[RemoveMsg.UpdateConfigFileFail],
+    60000: LangMsg.remove[RemoveMsg.InquirerMessageChooseKey],
+    60001: LangMsg.remove[RemoveMsg.InquirerSuffixChooseKey],
+    60002: LangMsg.remove[RemoveMsg.UpdateConfigFileSuccess],
+    60003: LangMsg.remove[RemoveMsg.UpdateConfigFileFail],
 
     70000: LangMsg.command[CommandMsg.DescriptionInit],
     70010: LangMsg.command[CommandMsg.DescriptionAdd],
