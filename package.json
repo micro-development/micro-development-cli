@@ -1,7 +1,7 @@
 {
   "name": "micro-development-cli",
   "description": "基于微开发模式的脚手架工具 micro-development-cli",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "author": "老君 yaimeet@126.com",
   "bin": {
     "md-cli": "./bin/run"
