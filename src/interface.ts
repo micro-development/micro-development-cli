@@ -8,7 +8,7 @@ export interface InitParams {
     targetDir: string;
     gitHost: string;
     gitNamespace: string;
-    packageKeySplit?: string,
+    packageKeySplit: string,
     dependencies: {
         [propName: string]: PackageConfig;
     };

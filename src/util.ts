@@ -172,9 +172,9 @@ export const choosePackageKey = async (packageInfo: InitParams, option: {
  * 获取当前操作仓库的key
  * @param inputPackage 组装当前操作的仓库的key
  */
-export const getPackageKey = (inputPackage: PackageConfig): string => {
+export const getPackageKey = (inputPackage: PackageConfig, packageKeySplit: string): string => {
     const gitNamespace = inputPackage.gitNamespace ? `${inputPackage.gitNamespace}@` : ``;
     const packagePrefix = `${gitNamespace}${inputPackage.gitRepoName}`
-    const packageKey = `${packagePrefix}#${inputPackage.gitBranchName}`
+    const packageKey = `${packagePrefix}${packageKeySplit}${inputPackage.gitBranchName}`
     return packageKey
 }

@@ -218,7 +218,7 @@ export default class Add extends Command {
     if (await checkCurPackageIsExist(this.packageKey) === true) {
       return false
     }
-    const packageInfo: InitParams = getPackageInfo()
+    const packageInfo: InitParams = await getPackageInfo()
     // packageInfo.dependencies[this.packageKey] = this.configData
     return packageInfo
   }
@@ -227,7 +227,6 @@ export default class Add extends Command {
    * 执行安装
    */
   async writeConfig(isCustom: boolean) {
-    this.packageKey = getPackageKey(this.configData)
     const result = await this.checkPackageIsExist()
     if (result !== false) {
       this.log(green('✅ 开始安装...'))
@@ -235,6 +234,7 @@ export default class Add extends Command {
         delete this.configData.gitRepoName
         delete this.configData.gitBranchName
       }
+      this.packageKey = getPackageKey(this.configData, result.packageKeySplit)
       result.dependencies[this.packageKey] = this.configData
       updatePackageInfo(result).then(() => {
         console.log(Msg[AddMsg.UpdateConfigFileSuccess])
