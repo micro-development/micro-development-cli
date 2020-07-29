@@ -92,13 +92,13 @@ export const remove = {
 }
 
 export const command = {
-    70000: '初始化配置文件（micro-development.json）',
-    70010: '（a）安装一个依赖（git仓库）',
-    70020: '（i）安装配置文件中所有的依赖（git仓库），已安装则忽略',
-    70030: '（u）更新一个依赖（git仓库）',
-    70040: '（s）查看一个依赖变更状态（git status）',
-    70050: '（c）提交仓库变更（git commit）',
-    70060: '（r）移除一个依赖（git仓库',
+    70000: `初始化配置文件（micro-development.json）`,
+    70010: `${green('（a）')}安装一个依赖（git仓库）`,
+    70020: `${green('（i）')}安装配置文件中所有的依赖（git仓库），已安装则忽略`,
+    70030: `${green('（u）')}更新一个依赖（git仓库）`,
+    70040: `${green('（s）')}查看一个依赖变更状态（git status）`,
+    70050: `${green('（c）')}提交仓库变更（git commit）`,
+    70060: `${green('（r）')}移除一个依赖（git仓库）`,
 }
 
 export const gitTip = {
