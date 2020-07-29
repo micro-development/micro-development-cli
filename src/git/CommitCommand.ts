@@ -18,7 +18,9 @@ export class CommitCommand extends GitCommand implements GitInterface {
                 console.log(Msg[GitMsg.CommitSuccessByCur](curPackageKey))
                 const commandList = [
                     `git -C ${this.repoDir} add .`,
-                    `git -C ${this.repoDir} commit -m '${commitContent}'`
+                    `git -C ${this.repoDir} commit -m '${commitContent}'`,
+                    `git -C ${this.repoDir} pull`,
+                    `git -C ${this.repoDir} push`
                 ]
                 const result = exec(commandList.join(' && '))
                 if (result.code === 0) {
