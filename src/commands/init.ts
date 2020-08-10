@@ -147,7 +147,7 @@ export default class Init extends Command {
             console.log(Msg[InitMsg.InquirerValidateGitHost])
             return false
           }
-          if (val.indexOf('git@') !== 0 && val.indexOf('http') !== 0) {
+          if (val.indexOf('git@') !== 0 && val.indexOf('http') !== 0 && val.indexOf('root@') !== 0) {
             console.log(Msg[InitMsg.InquirerValidateGitHost])
             return false
           }
