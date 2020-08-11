@@ -4,6 +4,11 @@ const config: ConfigInfo = require('./config.json')
 const LangMsg = require(`./i18n/${config.lang}`)
 // console.log(LangMsg)
 
+export enum PackageMsg {
+    GlobalIsLock    = 111111,
+    CurIsLock       = 111112
+}
+
 export enum InitMsg {
     NotExist = 10001,
     IsExist = 10002,
@@ -198,8 +203,8 @@ export const Msg = {
     40000: LangMsg.status[UpdateMsg.InquirerMessageChooseKey],
     40001: LangMsg.status[UpdateMsg.InquirerSuffixChooseKey],
 
-    50000: LangMsg.commit[UpdateMsg.InquirerMessageChooseKey],
-    50001: LangMsg.commit[UpdateMsg.InquirerSuffixChooseKey],
+    50000: LangMsg.commit[CommitMsg.InquirerMessageChooseKey],
+    50001: LangMsg.commit[CommitMsg.InquirerSuffixChooseKey],
 
     60000: LangMsg.remove[RemoveMsg.InquirerMessageChooseKey],
     60001: LangMsg.remove[RemoveMsg.InquirerSuffixChooseKey],
@@ -244,5 +249,9 @@ export const Msg = {
     80041: LangMsg.gitTip[GitMsg.CommitStartByCur],
     80042: LangMsg.gitTip[GitMsg.CommitSuccessByCur],
     80043: LangMsg.gitTip[GitMsg.CommitFailByCur],
+
+
+    111111: LangMsg.packageInfo[PackageMsg.GlobalIsLock],
+    111112: LangMsg.packageInfo[PackageMsg.CurIsLock],
 }
 

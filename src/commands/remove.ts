@@ -25,6 +25,9 @@ export default class Remove extends Command {
     const {args, flags} = this.parse(Remove)
     const packageKey = args.packageKey || flags.packageKey
     const gitCommand = new GitCommand()
+    if (gitCommand.checkPackageGlobalLock() !== true) {
+      return
+    }
     const packageInfo = gitCommand.packageInfo
     if (packageKey) {
       if (gitCommand.setGitRepoInfo(packageKey) !== false && gitCommand.checkGitRepoDirStatus() !== false) {

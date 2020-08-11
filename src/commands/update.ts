@@ -26,6 +26,9 @@ export default class Update extends Command {
     const {args, flags} = this.parse(Update)
     const packageKey = args.packageKey || flags.packageKey
     const gitCommand = new PullCommand()
+    if (gitCommand.checkPackageGlobalLock() !== true) {
+      return
+    }
     if (packageKey) {
       if (packageKey === 'all') {
         await gitCommand.start(Object.keys(gitCommand.packageInfo.dependencies))

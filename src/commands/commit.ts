@@ -33,6 +33,9 @@ export default class Commit extends Command {
     const packageKey = args.packageKey || flags.packageKey
     const commitContent = args.commitContent || flags.commitContent
     const gitCommand = new CommitCommand()
+    if (gitCommand.checkPackageGlobalLock() !== true) {
+      return
+    }
     if (packageKey) {
       this.inputPackageKey = packageKey
       if (commitContent) {

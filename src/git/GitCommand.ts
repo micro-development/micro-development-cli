@@ -3,7 +3,7 @@ import { echo, exec, test } from 'shelljs'
 import { red, yellow, green } from 'chalk'
 import { getPackageInfo } from '../util'
 import { InitParams, PackageConfig } from '../interface'
-import { Msg, GitMsg } from '../message'
+import { Msg, GitMsg, PackageMsg } from '../message'
 
 /**
  * Git命令封装
@@ -117,6 +117,17 @@ export class GitCommand {
      */
     get isGitRepoDir(): boolean {
         return test('-d', this.gitRepoDir)
+    }
+
+    /**
+     * 检测全局包是否被锁定，锁定给出提示
+     */
+    public checkPackageGlobalLock() {
+        if (this.isLockByGlobal) {
+            console.log(Msg[PackageMsg.GlobalIsLock])
+            return false
+        }
+        return true
     }
 
 

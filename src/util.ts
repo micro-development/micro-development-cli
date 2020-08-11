@@ -140,18 +140,28 @@ export const choosePackageKey = async (packageInfo: InitParams, option: {
       return false
     }
     const list: object[] = [];
-
+    let n: number = 0;
     (dKeys as []).forEach((pKey: string) => {
-      const isLockStr: string = !!dependencies[pKey].lock ? `${red(`（${option.isLockText || '已被锁定'}）`)}` : ''
-      const [pName, pBranch] = pKey.split('#')
-      list.push(
-        {
-          value: `${pKey}`,
-          name: `${pKey}${isLockStr}`,
-          disabled: dependencies[pKey].lock
+        if (!dependencies[pKey].lock) {
+            const isLockStr: string = !!dependencies[pKey].lock ? `${red(`（${option.isLockText || '已被锁定'}）`)}` : ''
+            const [pName, pBranch] = pKey.split('#')
+            list.push(
+                {
+                value: `${pKey}`,
+                name: `${pKey}${isLockStr}`,
+                disabled: !!dependencies[pKey].lock
+                }
+            )
         }
-      )
+      
+        if (!!dependencies[pKey].lock) {
+            n++
+        }
     })
+    if (n > 0 && n === (dKeys as []).length) {
+        console.log(red(`所有包已被锁定，禁止操作`))
+        return false
+    }
     const answer = await inquirer.prompt([
       {
         type: option.selectType,
@@ -161,6 +171,7 @@ export const choosePackageKey = async (packageInfo: InitParams, option: {
         choices: list
       }
     ])
+    // console.log('answer', answer)
     if (!answer.choicePackageKey.length) {
       console.log(yellow(`${option.noSelectTip || '没有选择，您放弃了。'}`))
       return false

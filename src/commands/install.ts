@@ -22,6 +22,9 @@ export default class Install extends Command {
 
   async gitClone() {
     const gitCommand = new CloneCommand()
+    if (gitCommand.checkPackageGlobalLock() !== true) {
+      return
+    }
     await gitCommand.start(Object.keys(gitCommand.packageInfo.dependencies))
   }
 }

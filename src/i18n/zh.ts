@@ -132,4 +132,10 @@ export const gitTip = {
     80041: (curPackageKey: string) => yellow(`\n提交仓库变更：${curPackageKey} 开始...`),
     80042: (curPackageKey: string) => green(`提交仓库变更：${curPackageKey} 成功`),
     80043: (curPackageKey: string, code: number) => red(`提交仓库变更：${curPackageKey} 失败，错误码：${code}`),
+
+}
+
+export const packageInfo = {
+    111111: red(`全局配置已锁定，禁止操作`),
+    111112: red(`当前操作项已被锁定，禁止操作`)
 }
