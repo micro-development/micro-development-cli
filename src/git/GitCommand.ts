@@ -201,11 +201,11 @@ export class GitCommand {
 
     public checkGitRepoDirStatus(): boolean {
         if (!this.isRepoDir) {
-            console.log(Msg[GitMsg.CommonNotFoundDirByInstall](this.curPackageKey))
+            console.log(Msg[GitMsg.CommonNotFoundDirByInstall](this.curPackageKey, this.repoDir))
             return false
         }
         if (!this.isGitRepoDir) {
-            console.log(Msg[GitMsg.CommonNotFoundGitDirByInstall](this.curPackageKey))
+            console.log(Msg[GitMsg.CommonNotFoundGitDirByInstall](this.curPackageKey, this.gitRepoDir))
             return false
         }
         return true
